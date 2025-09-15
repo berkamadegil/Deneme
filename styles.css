@@ -17,9 +17,21 @@ header {
 
 nav ul {
     list-style: none;
-    display: flex;
-    justify-content: center;
     padding: 0;
+}
+
+/* Mobil için Kaydırılabilir Menü */
+nav ul {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; /* iOS için düzgün kaydırma */
+    scrollbar-width: none; /* Firefox için scrollbar gizleme */
+    -ms-overflow-style: none; /* IE/Edge için scrollbar gizleme */
+}
+
+nav ul::-webkit-scrollbar {
+    display: none; /* Chrome/Safari için scrollbar gizleme */
 }
 
 nav ul li {
@@ -33,6 +45,7 @@ nav ul li a {
     padding: 10px 15px;
     border-radius: 20px;
     background: #2a3a54;
+    display: inline-block; /* Yatay hizalamayı koru */
     transition: background 0.3s;
 }
 
@@ -88,7 +101,7 @@ nav ul li a:hover {
 
 .apply-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Mobil varsayılan: tek sütun */
+    grid-template-columns: 1fr;
     gap: 15px;
     max-width: 90%;
     margin: 0 auto 15px auto;
@@ -129,6 +142,11 @@ nav ul li a:hover {
 
 /* PC için Stil (768px ve üstü) */
 @media (min-width: 768px) {
+    nav ul {
+        overflow-x: visible; /* PC'de kaydırma yok */
+        justify-content: center; /* PC'de ortala */
+    }
+
     nav ul li {
         margin: 0 20px;
     }
@@ -156,7 +174,7 @@ nav ul li a:hover {
     }
 
     .apply-grid {
-        grid-template-columns: repeat(3, 1fr); /* PC'de 3 sütun */
+        grid-template-columns: repeat(3, 1fr);
         gap: 20px;
         max-width: 1200px;
     }
