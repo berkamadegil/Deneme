@@ -6,6 +6,7 @@ body {
     overflow-x: hidden;
 }
 
+/* Header - Genel Stil */
 header {
     background: rgba(0, 0, 0, 0.7);
     padding: 10px 0;
@@ -22,14 +23,14 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 20px;
+    margin: 0 10px;
 }
 
 nav ul li a {
     color: #ffffff;
     text-decoration: none;
     font-size: 16px;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 20px;
     background: #2a3a54;
     transition: background 0.3s;
@@ -39,6 +40,7 @@ nav ul li a:hover {
     background: #3a4a64;
 }
 
+/* Section - Genel Stil */
 .section {
     display: none;
     min-height: 100vh;
@@ -51,6 +53,7 @@ nav ul li a:hover {
     animation: fadeIn 0.5s ease-in-out;
 }
 
+/* Hero - Genel ve Mobil Stil */
 .hero {
     height: 100vh;
     display: flex;
@@ -72,29 +75,30 @@ nav ul li a:hover {
     margin-top: 20px;
 }
 
+/* Apply Section - Genel ve Mobil Stil */
 .apply-section {
-    padding: 50px;
+    padding: 30px 10px;
     text-align: center;
 }
 
 .apply-section h1 {
-    font-size: 36px;
-    margin-bottom: 40px;
+    font-size: 30px;
+    margin-bottom: 20px;
 }
 
 .apply-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto 20px auto;
+    grid-template-columns: 1fr; /* Mobil varsayılan: tek sütun */
+    gap: 15px;
+    max-width: 90%;
+    margin: 0 auto 15px auto;
     justify-items: center;
 }
 
 .apply-card {
     position: relative;
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
@@ -115,23 +119,60 @@ nav ul li a:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 24px;
+    font-size: 18px;
     color: #ffffff;
     text-align: center;
     width: 100%;
-    padding: 10px;
+    padding: 5px;
     background: rgba(0, 0, 0, 0.5);
 }
 
-@media (max-width: 768px) {
-    .apply-grid {
-        grid-template-columns: 1fr;
+/* PC için Stil (768px ve üstü) */
+@media (min-width: 768px) {
+    nav ul li {
+        margin: 0 20px;
     }
+
+    nav ul li a {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .apply-section {
+        padding: 50px;
+    }
+
+    .apply-section h1 {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+
+    .apply-grid {
+        grid-template-columns: repeat(3, 1fr); /* PC'de 3 sütun */
+        gap: 20px;
+        max-width: 1200px;
+    }
+
     .apply-card {
-        width: 100%;
+        height: 300px;
+        width: 300px;
+    }
+
+    .card-text {
+        font-size: 24px;
+        padding: 10px;
     }
 }
 
+/* Animasyon */
 @keyframes fadeIn {
     from {
         opacity: 0;
